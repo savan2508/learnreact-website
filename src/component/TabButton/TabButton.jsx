@@ -1,5 +1,5 @@
 export function TabButton(props) {
-  const { children, onSelect } = props;
+  const { children, onSelect, isSelected } = props;
 
   function handleClick() {
     onSelect();
@@ -7,7 +7,9 @@ export function TabButton(props) {
 
   return (
     <li>
-      <button onClick={handleClick}>{children}</button>
+      <button className={(isSelected && "active") || ""} onClick={handleClick}>
+        {children}
+      </button>
     </li>
   );
 }
